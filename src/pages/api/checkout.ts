@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log(priceId)
 
   const cancelUrl = `${process.env.NEXT_URL}`
-  const successUrl = `${process.env.NEXT_URL}/success`
+  const successUrl = `${process.env.NEXT_URL}/success?session_id={CHECKOUT_SESSION_ID}`
   
   const checkoutSessions = await stripe.checkout.sessions.create({
     mode: 'payment',
